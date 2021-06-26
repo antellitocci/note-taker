@@ -6,4 +6,6 @@ router.get('/notes', (req, res) =>{
     res.json(notes);
 });
 
+//POST goes here
+
 module.exports = router;
