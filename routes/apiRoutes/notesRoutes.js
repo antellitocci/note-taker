@@ -2,6 +2,7 @@ const router = require('express').Router();
 const {  findNoteById, createNewNote, deleteSelectedNote } = require('../../lib/notes');
 const { notes } = require('../../db/notes.json');
 
+//return existing notes list
 router.get('/notes', (req, res) =>{
     res.json(notes);
 });
@@ -20,13 +21,15 @@ router.post('/notes', (req, res) => {
 });
 
 router.delete('/notes/:id', (req, res) => {
+    //make sure the note exists before trying to delete
     let found = findNoteById(req.params.id, notes);
+    //if does exist, delete and return the remaining notes
     if(found){
         let newArr = deleteSelectedNote(found, notes);
         res.json(newArr);
     }
     else{
-        window.alert(`Could not delete note. Please ensure not exists and try again.`);
+        window.alert(`Could not delete note. Please ensure note exists and try again.`);
     }
 });
 
