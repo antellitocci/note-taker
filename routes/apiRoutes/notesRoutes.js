@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { createNewNote } = require('../../lib/notes');
+const {  findNoteById, createNewNote, deleteSelectedNote } = require('../../lib/notes');
 const { notes } = require('../../db/notes.json');
 
 router.get('/notes', (req, res) =>{
@@ -17,6 +17,17 @@ router.post('/notes', (req, res) => {
     const note = createNewNote(req.body, notes);
     res.json(note);
 
+});
+
+router.delete('/notes/:id', (req, res) => {
+    let found = findNoteById(req.params.id, notes);
+    if(found){
+        let newArr = deleteSelectedNote(found, notes);
+        res.json(newArr);
+    }
+    else{
+        window.alert(`Could not delete note. Please ensure not exists and try again.`);
+    }
 });
 
 module.exports = router;

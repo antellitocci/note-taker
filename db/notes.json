@@ -1,24 +1,9 @@
 {
   "notes": [
     {
-      "id": "0",
-      "title": "Test Title",
-      "text": "Test text"
-    },
-    {
-      "id": "1",
-      "title": "Test Title",
-      "text": "Test text"
-    },
-    {
-      "title": "Eample",
-      "text": "Testing\n",
-      "id": "2"
-    },
-    {
-      "title": "Do i know",
-      "text": "yes",
-      "id": "3"
+      "title": "Can we do it?",
+      "text": "Maybe",
+      "id": "0"
     }
   ]
 }
